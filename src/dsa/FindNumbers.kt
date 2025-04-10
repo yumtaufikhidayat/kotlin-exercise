@@ -2,9 +2,9 @@ package src.dsa
 
 fun main() {
     val nums = listOf(12, 345, 2, 6, 7896)
-    println(nums.findEvenDigitCount())
-    println(nums.findEvenDigit())
-    println(nums.countDigitLength())
+    println("Jumlah angka genap: ${nums.findEvenDigitCount()}")
+    println("Jumlah angka genap: ${nums.findEvenDigit()}")
+    println("Panjang digit setiap angka: ${nums.countDigitLength().joinToString(", ")}")
 }
 
 fun List<Int>.findEvenDigitCount(): Int = this.map { it.toString().length }.count { it % 2 == 0 }
