@@ -2,9 +2,9 @@ package src.dsa
 
 fun main() {
     countEvenOddNumber()
-    partitionNext()
-    getNumberMoreThanFive()
-    getNumberMoreThanFiveNext()
+    showSummaryOfEvenOddNumber()
+    getNumberMoreThanN(5)
+    getNumberMoreThanNext(5)
 }
 
 fun countEvenOddNumber() {
@@ -14,7 +14,7 @@ fun countEvenOddNumber() {
     println("List angka ganjil: ${ganjil.joinToString(", ")} (total: ${ganjil.sum()})")
 }
 
-fun partitionNext() {
+fun showSummaryOfEvenOddNumber() {
     val listOfNumber = listOf(10, -5, 8, -2, 3, -7, 0)
     val (positive, negative) = listOfNumber.partition { it >= 0 }
 
@@ -31,9 +31,9 @@ fun partitionNext() {
     println("Rata-rata: $averageNegative")
 }
 
-fun getNumberMoreThanFive() {
+fun getNumberMoreThanN(n: Int) {
     val listOfNumber = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val filter = listOfNumber.filter { it > 5 }
+    val filter = listOfNumber.filter { it > n }
     val (even, odd) = filter.partition { it % 2 == 0 }
     val avgEven = "%.2f".format(even.average())
     val evenCount = even.count()
@@ -42,21 +42,21 @@ fun getNumberMoreThanFive() {
     val oddCount = odd.count()
     val totalOdd = odd.sum()
 
-    println("Angka Genap (>5): ${even.joinToString(", ")}")
+    println("Angka Genap (>${n}): ${even.joinToString(", ")}")
     println("Jumlah: $evenCount")
     println("Total: $totalEven")
     println("Rata-rata: $avgEven")
     println()
 
-    println("Angka Ganjil (>5): ${odd.joinToString(", ")}")
+    println("Angka Ganjil (>${n}): ${odd.joinToString(", ")}")
     println("Jumlah: $oddCount")
     println("Total: $totalOdd")
     println("Rata-rata: $avgOdd")
 }
 
-fun getNumberMoreThanFiveNext() {
+fun getNumberMoreThanNext(n: Int) {
     val listOfNumber = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val filter = listOfNumber.filter { it > 5 }
+    val filter = listOfNumber.filter { it > n }
     val sortedDesc = filter.sortedDescending()
 
     val (even, odd) = sortedDesc.partition { it % 2 == 0 }
@@ -73,14 +73,14 @@ fun getNumberMoreThanFiveNext() {
     val totalOdd = odd.sum()
     val topTwoOddNumber = odd.take(2)
 
-    println("Angka Genap (>5): ${even.joinToString(", ")}")
+    println("Angka Genap (>${n}): ${even.joinToString(", ")}")
     println("Jumlah: $evenCount")
     println("Total: $totalEven")
     println("Rata-rata: $avgEvenStr")
     println("Dua angka teratas: $topTwoEvenNumber")
     println()
 
-    println("Angka Ganjil (>5): ${odd.joinToString(", ")}")
+    println("Angka Ganjil (>${n}): ${odd.joinToString(", ")}")
     println("Jumlah: $oddCount")
     println("Total: $totalOdd")
     println("Rata-rata: $avgOddStr")
