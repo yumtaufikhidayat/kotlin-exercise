@@ -5,16 +5,16 @@ fun main() {
     checkWord()
 }
 
-fun wordData(): List<String> = listOf("A", "B", "C", "Z", "U", "X", "E")
+fun wordData(): List<Char> = listOf('A', 'B', 'C', 'Z', 'U', 'X', 'E')
 
 fun showVowels() {
     println(wordData().getVowels())
 }
 
-fun List<String>.getVowels(): List<String> {
+fun List<Char>.getVowels(): List<Char> {
     return this.sorted()
         .filter {
-            it == "A" || it == "I" || it == "U" || it == "E" || it == "O"
+            it == 'A' || it == 'I' || it == 'U' || it == 'E' || it == 'O'
         }
 }
 
