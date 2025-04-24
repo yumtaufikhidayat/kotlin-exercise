@@ -2,12 +2,13 @@ package src.dsa
 
 fun main() {
     showVowels()
+    checkWord()
 }
 
-fun vowelsData(): List<String> = listOf("A", "B", "C", "Z", "U", "X", "E")
+fun wordData(): List<String> = listOf("A", "B", "C", "Z", "U", "X", "E")
 
 fun showVowels() {
-    println(vowelsData().getVowels())
+    println(wordData().getVowels())
 }
 
 fun List<String>.getVowels(): List<String> {
@@ -16,3 +17,18 @@ fun List<String>.getVowels(): List<String> {
             it == "A" || it == "I" || it == "U" || it == "E" || it == "O"
         }
 }
+
+fun checkWord() {
+    val str = "Ini budi123"
+    println("${str.hasVowel()}\n${str.hasConsonant()}")
+}
+
+fun String.hasVowel(): Boolean =
+    this.any { it.isLetterOrDigit() && it.isVocal() }
+
+fun String.hasConsonant(): Boolean =
+    this.any { it.isLetterOrDigit() && !it.isVocal() }
+
+fun Char.isVocal(): Boolean = this.uppercaseChar() in vocals()
+
+fun vocals(): List<Char> = listOf('A', 'I', 'U', 'E', 'O')
